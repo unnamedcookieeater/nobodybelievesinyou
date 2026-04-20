@@ -1,4 +1,6 @@
-/* Базовые настройки и сброс */
+/* =================================================у
+   1. БАЗОВЫЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ
+   ================================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +8,11 @@
 }
 
 :root {
-    /* Разнообразная цветовая палитра */
-    --bg-dark: #0f172a; /* Глубокий сине-черный фон */
-    --bg-card: #1e293b; /* Фон карточек */
-    --text-main: #f8fafc; /* Белый текст */
-    --text-muted: #94a3b8; /* Серый текст для описаний */
+    --bg-dark: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
     
-    /* Акцентные цвета для разных разделов */
     --accent-blue: #3b82f6;
     --accent-purple: #8b5cf6;
     --accent-green: #10b981;
@@ -30,7 +30,6 @@ body {
     min-height: 100vh;
 }
 
-/* Ограничитель под 1920x1080 */
 .container {
     max-width: 1800px;
     margin: 0 auto;
@@ -38,7 +37,9 @@ body {
     width: 100%;
 }
 
-/* Глобальные элементы: Header и Navigation */
+/* =================================================
+   2. ШАПКА (HEADER) И НАВИГАЦИЯ
+   ================================================= */
 header {
     background-color: rgba(15, 23, 42, 0.95);
     border-bottom: 1px solid #334155;
@@ -58,7 +59,6 @@ header {
     font-size: 28px;
     font-weight: bold;
     text-decoration: none;
-    color: var(--text-main);
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -82,13 +82,66 @@ nav a:hover {
     color: var(--accent-blue);
 }
 
-/* Основной контент */
+/* =================================================
+   3. КАРТОЧКИ И АНИМАЦИЯ (ДВИЖЕНИЕ)
+   ================================================= */
+
+/* Базовый вид карточки */
+.card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 16px;
+    border-top: 4px solid var(--accent-blue); /* Цвет по умолчанию */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    
+    /* Плавность перехода для всех эффектов */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                box-shadow 0.3s ease, 
+                border-color 0.3s ease;
+}
+
+/* Эффект при наведении (общий для всех) */
+.card:hover {
+    transform: translateY(-12px) scale(1.03); /* Всплывает и увеличивается */
+}
+
+/* Разнообразие цветов и свечения при наведении */
+.card.green { border-color: var(--accent-green); }
+.card.green:hover { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); }
+
+.card.purple { border-color: var(--accent-purple); }
+.card.purple:hover { box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2); }
+
+.card.orange { border-color: var(--accent-orange); }
+.card.orange:hover { box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2); }
+
+.card.blue:hover { box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2); }
+
+/* =================================================
+   4. СЕТКИ (LAYOUT)
+   ================================================= */
 main {
     flex: 1;
     padding: 60px 0;
 }
 
-/* Типографика и утилиты */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* =================================================
+   5. ТИПОГРАФИКА И КНОПКИ
+   ================================================= */
 h1 { font-size: 56px; margin-bottom: 20px; line-height: 1.2; }
 h2 { font-size: 40px; margin-bottom: 20px; color: var(--accent-blue); }
 h3 { font-size: 24px; margin-bottom: 15px; }
@@ -116,35 +169,7 @@ p { font-size: 18px; margin-bottom: 20px; color: var(--text-muted); max-width: 8
     border: 2px solid var(--accent-purple);
 }
 
-/* Сетки для карточек (Продукты, Цены, Команда) */
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.card {
-    background-color: var(--bg-card);
-    padding: 40px;
-    border-radius: 16px;
-    border-top: 4px solid var(--accent-blue);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-/* Разнообразие цветов для карточек */
-.card.green { border-color: var(--accent-green); }
-.card.purple { border-color: var(--accent-purple); }
-.card.orange { border-color: var(--accent-orange); }
-
-/* Элементы таблиц цен */
+/* Элементы цен */
 .price-tag {
     font-size: 48px;
     font-weight: bold;
@@ -172,7 +197,9 @@ p { font-size: 18px; margin-bottom: 20px; color: var(--text-muted); max-width: 8
     font-weight: bold;
 }
 
-/* Глобальный Footer */
+/* =================================================
+   6. ПОДВАЛ (FOOTER)
+   ================================================= */
 footer {
     background-color: #0b1120;
     padding: 40px 0;
