@@ -1,0 +1,196 @@
+/* Базовые настройки и сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Разнообразная цветовая палитра */
+    --bg-dark: #0f172a; /* Глубокий сине-черный фон */
+    --bg-card: #1e293b; /* Фон карточек */
+    --text-main: #f8fafc; /* Белый текст */
+    --text-muted: #94a3b8; /* Серый текст для описаний */
+    
+    /* Акцентные цвета для разных разделов */
+    --accent-blue: #3b82f6;
+    --accent-purple: #8b5cf6;
+    --accent-green: #10b981;
+    --accent-orange: #f59e0b;
+    --accent-gradient: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Ограничитель под 1920x1080 */
+.container {
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+/* Глобальные элементы: Header и Navigation */
+header {
+    background-color: rgba(15, 23, 42, 0.95);
+    border-bottom: 1px solid #334155;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-main);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-blue);
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+    padding: 60px 0;
+}
+
+/* Типографика и утилиты */
+h1 { font-size: 56px; margin-bottom: 20px; line-height: 1.2; }
+h2 { font-size: 40px; margin-bottom: 20px; color: var(--accent-blue); }
+h3 { font-size: 24px; margin-bottom: 15px; }
+p { font-size: 18px; margin-bottom: 20px; color: var(--text-muted); max-width: 800px; }
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: var(--accent-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent-purple);
+}
+
+/* Сетки для карточек (Продукты, Цены, Команда) */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 16px;
+    border-top: 4px solid var(--accent-blue);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Разнообразие цветов для карточек */
+.card.green { border-color: var(--accent-green); }
+.card.purple { border-color: var(--accent-purple); }
+.card.orange { border-color: var(--accent-orange); }
+
+/* Элементы таблиц цен */
+.price-tag {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--text-main);
+    margin: 20px 0;
+}
+
+.price-list {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+.price-list li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.price-list li::before {
+    content: "✓";
+    color: var(--accent-green);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Глобальный Footer */
+footer {
+    background-color: #0b1120;
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #334155;
+    margin-top: auto;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    color: var(--text-main);
+}
